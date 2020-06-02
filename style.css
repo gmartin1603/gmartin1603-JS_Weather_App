@@ -10,3 +10,7 @@
     color: #FFD23F;
     font-family: sans-serif;
 }
+
+.card-title {
+    text-transform: capitalize;
+}
