@@ -1,5 +1,9 @@
 
-
+.main {
+    
+    background-image: url(/assets/sunny-day.jpg);
+    background-position: center;
+}
 
 #city-input, #weather-output {
     max-width: 400px;
@@ -7,10 +11,11 @@
 }
   
 .banner {
-    color: #FFD23F;
-    font-family: sans-serif;
+    color: rgb(10, 9, 75);
+    font-family: fantasy;
 }
 
 .card-title {
     text-transform: capitalize;
 }
+

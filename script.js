@@ -27,6 +27,7 @@ searchCity = () => {
   getWeatherData(city)
   .then((response)=>{
     showWeatherData(response);
+    console.log(response);
   }).catch((error)=>{
     console.log(error);
   })
@@ -38,11 +39,15 @@ searchCity = () => {
  */
 showWeatherData = (weatherData) => {
   //CODE GOES HERE
+  
   document.getElementById("city-name").innerText = weatherData.name;
   document.getElementById("weather-type").innerText = weatherData.weather[0].description;
   document.getElementById("temp").innerText = weatherData.main.temp;
   document.getElementById("min-temp").innerText = weatherData.main.temp_min;
   document.getElementById("max-temp").innerText = weatherData.main.temp_max;
+  document.getElementById("humidity").innerText = weatherData.main.humidity;
+  document.getElementById("wind-speed").innerText = weatherData.wind.speed;
+  document.getElementById("wind-direction").innerText = weatherData.wind.deg;
 }
 
 var input = document.getElementById("city-input");
@@ -55,5 +60,6 @@ window.addEventListener("keyup", function(event) {
     searchCity();
   }
 });
+
 
 
