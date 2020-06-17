@@ -1,8 +1,9 @@
 
-.main {
+.text-center {
     
-    background-image: url(/assets/sunny-day.jpg);
-    background-position: center;
+    background-image: url(/assets/mohammad-alizade-DunSKupQL7g-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #city-input, #weather-output {
@@ -11,7 +12,7 @@
 }
   
 .banner {
-    color: rgb(10, 9, 75);
+    color: rgba(255, 255, 255, 0.842);
     font-family: fantasy;
 }
 

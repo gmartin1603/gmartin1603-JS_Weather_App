@@ -43,12 +43,14 @@ showWeatherData = (weatherData) => {
   document.getElementById("city-name").innerText = weatherData.name;
   document.getElementById("weather-type").innerText = weatherData.weather[0].description;
   document.getElementById("temp").innerText = weatherData.main.temp;
-  document.getElementById("min-temp").innerText = weatherData.main.temp_min;
-  document.getElementById("max-temp").innerText = weatherData.main.temp_max;
-  document.getElementById("humidity").innerText = weatherData.main.humidity;
-  document.getElementById("wind-speed").innerText = weatherData.wind.speed;
-  document.getElementById("wind-direction").innerText = weatherData.wind.deg;
+  document.getElementById("min-temp").innerText = Math.floor(weatherData.main.temp_min);
+  document.getElementById("max-temp").innerText = Math.floor(weatherData.main.temp_max);
+  document.getElementById("humidity").innerText = Math.floor(weatherData.main.humidity);
+  document.getElementById("wind-speed").innerText = Math.floor(weatherData.wind.speed);
+  document.getElementById("wind-direction").innerText = `${getWindDir(weatherData.wind.deg)} @ ${weatherData.wind.deg}°`;
+  // document.getElementById("sun-rise").innerText = `${getSunRise(weatherData.sys.sunrise)}`;
 }
+
 
 var input = document.getElementById("city-input");
 
@@ -63,3 +65,75 @@ window.addEventListener("keyup", function(event) {
 
 
 
+function getWindDir(windDeg) {
+  let compassDir = null
+  
+  if (windDeg == 0) {
+    compassDir = "N"
+  }
+
+  else if (windDeg > 0 && windDeg < 45) {
+    compassDir = "N,NE"
+  }
+  
+  else if (windDeg == 45) {
+    compassDir = "NE"
+  }
+
+  else if (windDeg > 45 && windDeg < 90) {
+    compassDir = "E,NE"
+  }
+  
+  else if (windDeg == 90) {
+    compassDir = "E"
+  }
+
+  else if (windDeg > 90 && windDeg < 135) {
+    compassDir = "E,SE"
+  }
+  
+  else if (windDeg == 135) {
+    compassDir = "SE"
+  }
+  
+  else if (windDeg > 135 && windDeg < 180) {
+    compassDir = "S,SE"
+  }
+  
+  else if (windDeg == 180) {
+    compassDir = "S"
+  }
+  
+  else if (windDeg > 180 && windDeg < 225) {
+    compassDir = "S,SW"
+  }
+  
+  else if (windDeg == 225) {
+    compassDir = "SW"
+  }
+  
+  else if (windDeg > 225 && windDeg < 270) {
+    compassDir = "W,SW"
+  }
+  
+  else if (windDeg == 270) {
+    compassDir = "W"
+  }
+  
+  else if (windDeg > 270 && windDeg < 360) {
+    compassDir = "N,NW"
+  }
+  return compassDir
+}
+
+
+
+
+// function getSunRise(dateStamp) {
+//   console.log(dateStamp)
+//   let hours = new Date(dateStamp).getHours();
+//   let mins = new Date(dateStamp).getMinutes();
+//   let sunrise = `${hours+1}:${mins}`
+//   console.log(sunrise)
+//   return sunrise
+// }
